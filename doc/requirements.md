@@ -1,24 +1,39 @@
 # Table Requirements
-* Let there be a table at which the players can arrive at.
+* Let there be a table (which can be in the form of a unique URL, for example) at which the players can arrive at.
 * Allow 4 players to participate in a game.
 * Allow 6 players to participate in a game.
 * Allow 8 players to participate in a game.
-* Allow players to select spots at the table
+* Allow players to select spots at the table. 
+* Allow players to change spots till the players mutually agree upon the selected slots.
+* Disallow the game from continuing forward if the number of players at the table is not in [4,6,8]
 
 # Game requirements
 
 ## Dealer Selection Requirements
-* At the outset, before the first dealing, any player should be able to become the dealer of cards.
+* At the outset, before the first dealing, a player should be selected randomly to be the dealer of cards.
+
+## Dealing Requirements
+* The initial set of cards (4 cards for 4 players and 6 card for 6 and 8 players) are to be dealt in counter-clockwise direction.
+* The rest of the cards are to be dealt after all "thurf" declaration requirements are met.
 
 ## "Thurf" Declaration Requirements
 ### Simple game
-* All the players should be allowed to declare that they have a game, 'thurf'.
+* All the players should be allowed to declare that they have a game or call out "aata".
 * When multiple players arbitrate for declaring the exact 'thurf' suit, the precedence order for declaration is clockwise starting from the dealer.
-* After declaring a game, but before calling out the "thurf" suit by following the rules of precedence, a player should be allowed to back out his declaration
-* Only one player should finally get to declar the "thurf" suit for that game
+* After calling out "aata", but before calling out the "thurf" suit by following the rules of precedence, a player should be allowed to back out his declaration.
+* If any player wins the "thurf" arbitration, and then backs out, the rules of precendence set above should apply again.
+* Only one player should finally get to declare the "thurf" suit for that game.
 * The player that has declared the "thurf" suit should be shown in a different color.
-### Game with "addu"
-* WIP: Phase 2
+* There should be a mehcanism to finalize the "thurf" arbitration. Either by timeout or by ACKs by all players at the table.
+### "Kotu" requirements
+* In a special case, a player must be allowed to call out "kotu" - a special form of "thurf" declaration.
+* In this case, the player who has called out "kotu" should only be playing from his/her team. He should be playing all the players of the opponent team.
+### Game with "addu" 
+* When a player declares a "thurf", a player from the other team should be allowed to call out "addu" to double the stakes of the game.
+* Further, when the opponent decalres "addu", the team which declared "thurf" should be able to call out "shartu" to quadruple the stakes.
+* Furthermore, when the thurf team declares shartu, the opponent should be able to declare "pai-shartu" to octople the stakes
+ 
+[How the multiplication of stakes affects the score is covered in the Scoring Requirements section]
 
 ## Game Play Requirements
 ### Basic gameplay (irrespective of suit)
@@ -31,6 +46,11 @@
 ### Thurf round
 * If the round has started with a thurf card, every other player should only be allowed to play a thurf card except when the player does not have a thurf card in which case he may be allowed to play any card in that round.
 * [48 card variant]: If the person who declared thurf does not have a J, the "J" that gets last thrown onto the table should get the pattu.
+
+## Kotu game
+* The player who called out Kotu and won the arbitration for that Kotu, must win all the pattus if his team should win the game.
+* If the above fails to happen, ensure that the opponent wins and his score is adjusted according to the scoring regime (detailed out in the scoreboard requirements)
+* The basic gameplay, non-thurf round and thurf round requirements must be applied to the kotu game as well.
 
 ## Game Scoring Requirements
 * The game must keep track of how many more games a player must deal before the dealer switches to the other team
@@ -58,7 +78,7 @@
 
 # Card Requirements
 A, J, K, Q, 10, 9 from each suit (diamonds, hearts, clubs, spades) are the only cards to be dealt.
-If one pack of cards are being used, then the card cound is 24. If two packs of cards are being used, then the card count is 48 cards.
+If one pack of cards are being used, then the card count is 24. If two packs of cards are being used, then the card count is 48.
 
 ## Card Precdence Requirements
 * The precedence among cards within the thurf-suit shoule be as follows - J, 9, A, K, Q, 10
@@ -84,7 +104,21 @@ Ensure that the cards are shuffled (randomized) and given to players
 * All messages in the chatbox should be visible to every other player at the table.
 
 # Language requirements
-* WIP: Where possible let there be telugu words used in telugu font. 
+* The telugu non-translatables such as "addu", "kotu", "shartu", etc. should be representable in telugu font. The language should be selectable for the player.
 
-# "Kotu" requirements
-* WIP: Phase 2
+# Visual/GUI requirements
+## Basic requirements
+* There should be a visual cue to show all the players who is the dealer for the game.
+* There should be a visual cue to show how the cards are being dealt in a counter-clockwise direction.
+* The cards that the player holds should be clearly visible. There should be no visual ambiguity for the player to know which are the cards he/she is holding. The suit and the number must be clearly visible on the card.
+* There should be visual cues for all the players to know who has called out "aata"/"kotu" and additionally to know if there are higher stakes at the table: such as "addu"/"shartu"/"pai-shartu".
+* There should be a visual cue to all players showing which suit is the "thurf" of that game. 
+* If a "pattu" goes to a particular player, there must be a visual cue tracing that bunch of cards (the pattu) to the winner's part of desk.
+* If a "pattu" goes to a particular player, there must be a visual cue showing that pattu near the player's cards. 
+** Further, if the player wants to see what all cards are in his pattu or in the pattu of his teammate(s), he/she should be allowed to see those cards. 
+** Furthermore, a player should be disallowed from seeing the "pattus" of the opponent team.
+
+## Activity log requirements
+* In every round of a game, there must be visual cues showing the player and the card he/she played.
+* There must be a visual cue separating the log of one round from the log of another round in the log.
+* The activity log can optionally be cleared off after every game or can choose to remain across games depending on storage crunch.
